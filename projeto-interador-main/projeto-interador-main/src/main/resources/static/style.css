@@ -1,0 +1,426 @@
+/* Resetando estilos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Body */
+body {
+    background-color: #121212;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Container principal */
+.container {
+    background-color: #1F1F1F;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Título */
+header h1 {
+    font-size: 2.5rem;
+    color: #E50914;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #B0B0B0;
+    margin-bottom: 30px;
+}
+
+/* Formulário */
+.form-container {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.form-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #FFF;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #E50914;
+    box-shadow: 0 0 8px rgba(229, 9, 20, 0.6);
+    outline: none;
+}
+
+/* Botões */
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #E50914;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #B20710;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #8E0000;
+    transform: scale(0.98);
+}
+
+button:focus {
+    outline: 3px solid #E50914;
+    outline-offset: 2px;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: #1F1F1F;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Opções de Filme */
+.movie-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.movie-option {
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.movie-option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    background-color: #E50914;
+}
+
+.movie-option:active {
+    background-color: #B20710;
+    transform: scale(0.98);
+}
+
+.movie-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    color: #FFF;
+}
+
+.movie-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #FFF;
+}
+
+/* Filme Selecionado */
+.selected-film {
+    margin-top: 30px;
+    background-color: #1F1F1F;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.selected-film.hidden {
+    display: none;
+}
+
+.selected-option {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.selected-option span {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    color: #FFF;
+}
+
+.selected-option h3 {
+    font-size: 1.2rem;
+    color: #FFF;
+}
+
+/* Foto de Perfil com Efeito Hover */
+.perfil-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+.perfil-img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Lista de Reservas */
+.registro-list {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #1F1F1F;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.5s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo individual para cada item de reserva */
+.registro-item {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre cada reserva */
+.registro-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para o texto e imagens na horizontal */
+.registro-item > div {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    text-align: left;
+}
+
+/* Nome do filme */
+.registro-item h3 {
+    color: #E50914;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* Informações da reserva */
+.registro-item p {
+    color: #FFF;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+/* Fotos de perfil */
+.registro-item .perfil-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .registro-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .registro-item > div {
+        margin-right: 0;
+    }
+
+    .perfil-img {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .registro-item {
+        flex-direction: column;
+        padding: 10px;
+    }
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .movie-options {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-emoji {
+        margin: 5px 0;
+    }
+
+    .container {
+        padding: 20px;
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 20px;
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-container {
+        padding: 10px;
+    }
+
+    .movie-options {
+        grid-template-columns: 1fr;
+    }
+    /* Estilo do botão Editar */
+.edit-btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #4CAF50; /* Cor verde */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.edit-btn:hover {
+    background-color: #45a049; /* Cor verde escuro ao passar o mouse */
+    transform: scale(1.05);
+}
+
+.edit-btn:active {
+    background-color: #388e3c; /* Cor verde mais escura ao clicar */
+    transform: scale(0.98);
+}
+
+.edit-btn:focus {
+    outline: 3px solid #4CAF50; /* Borda verde ao focar */
+    outline-offset: 2px;
+}
+
+/* Estilização do ícone dentro do botão */
+.edit-btn svg {
+    margin-right: 8px;
+    font-size: 1.3rem; /* Tamanho do ícone */
+}
+
+}
+
+
